@@ -1,0 +1,88 @@
+<div class="container" [formGroup]="personForm">
+    <div>
+        <div class="person" formGroupName="person">
+            <h1>
+                Person
+            </h1>
+            <mat-form-field appearance="fill">
+                <mat-label>Name
+                </mat-label>
+                <input matInput placeholder="Name" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Last Name
+                </mat-label>
+                <input matInput placeholder="Last Name" formControlName="lastName">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Age
+                </mat-label>
+                <input matInput type="number" placeholder="Age" formControlName="age">
+            </mat-form-field>
+        </div>
+
+        <div class="address" formGroupName="address">
+            <h1>
+                Address
+            </h1>
+            <mat-form-field appearance="fill">
+                <mat-label>City
+                </mat-label>
+                <input matInput placeholder="City" formControlName="city">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>CAP
+                </mat-label>
+                <input matInput placeholder="CAP" formControlName="cap">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Street
+                </mat-label>
+                <input matInput placeholder="Street" formControlName="street">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>At
+                </mat-label>
+                <input matInput placeholder="At" formControlName="at">
+            </mat-form-field>
+        </div>
+        <div class="profession" formGroupName="profession">
+            <h1>
+                Profession
+            </h1>
+            <section class="professionBox">
+                <mat-checkbox (change)=" setChecked('college') ">College</mat-checkbox>
+                <mat-checkbox color="primary" (change)="setChecked('highSchool')">High School</mat-checkbox>
+                <mat-checkbox color="warn" (change)="setChecked('work')">Work</mat-checkbox>
+            </section>
+            <mat-form-field appearance="fill" *ngIf="collegeCheck">
+                <mat-label>College
+                </mat-label>
+                <input matInput placeholder="College" formControlName="college">
+            </mat-form-field>
+            <mat-form-field appearance="fill" *ngIf="highSchoolCheck">
+                <mat-label>High School
+                </mat-label>
+                <input matInput placeholder="High School" formControlName="highSchool">
+            </mat-form-field>
+            <mat-form-field appearance="fill" *ngIf="workCheck">
+                <mat-label>Salary
+                </mat-label>
+                <input matInput placeholder="Salary" formControlName="salary">
+            </mat-form-field>
+            <mat-form-field appearance="fill" *ngIf="workCheck">
+                <mat-label>Rank
+                </mat-label>
+                <input matInput placeholder="Rank" formControlName="rank">
+            </mat-form-field>
+        </div>
+        <div class="buttonContainer">
+            <button mat-fab (click)="savePerson()">
+                <mat-icon>save</mat-icon>
+            </button>
+            <button mat-fab (click)="openList()">
+                <mat-icon>list</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

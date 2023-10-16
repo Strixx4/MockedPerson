@@ -1,0 +1,133 @@
+<div class="cont">
+    <div>
+        <mat-card class="person">
+            <mat-card-content>
+                <mat-card-title>
+                    Person
+                </mat-card-title>
+                <div class="midContainer">
+                    <mat-card>
+                        <div class="subject">
+                            Name:
+                        </div>
+                        <div>
+                            {{personInfo.person.name}}
+                        </div>
+                    </mat-card>
+                    <mat-card>
+                        <div class="subject">
+                            Last Name:
+                        </div>
+                        <div>
+                            {{personInfo.person.lastname}}
+                        </div>
+                    </mat-card>
+                    <mat-card>
+                        <div class="subject">
+                            Age: 
+                        </div>
+                        <div>
+                            {{personInfo.person.age}}
+                        </div>
+                    </mat-card>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="address">
+            <mat-card-content>
+                <mat-card-title>
+                    Address
+                </mat-card-title>
+                    <div class="midContainer">
+                        <mat-card>
+                            <div class="subject">
+                                City: 
+                            </div>
+                            <div>
+                                {{personInfo.address.city}}
+                            </div>
+                        </mat-card>
+                        <mat-card>
+                            <div class="subject">
+                                CAP:
+                            </div>
+                            <div>
+                             {{personInfo.address.cap}}
+                            </div>
+                        </mat-card>
+                        <mat-card>
+                            <div class="subject">
+                                Street: 
+                            </div>
+                            <div>
+                                {{personInfo.address.street}}
+                            </div>
+                        </mat-card>
+                        <mat-card *ngIf="personInfo.address.at">
+                            <div class="subject">
+                                At: 
+                            </div>
+                            <div>
+                                {{personInfo.address.at}}
+                            </div>
+                        </mat-card>
+                    </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="profession" *ngIf="checkAll()">
+            <mat-card-content>
+                <mat-card-title>
+                    Profession
+                </mat-card-title>
+                    <div class="midContainer">
+                        <mat-card *ngIf="personInfo.culture.college">
+                            <div class="subject">
+                                College: 
+                            </div>
+                            <div>
+                                {{personInfo.culture.college}}
+                            </div>
+                        </mat-card>
+                        <mat-card *ngIf="personInfo.culture.highSchool">
+                            <div class="subject">
+                                High School:
+                            </div>
+                            <div>
+                                {{personInfo.culture.highSchool}}
+                            </div>
+                        </mat-card>
+                        <mat-card *ngIf="personInfo.work.salary">
+                            <div class="subject">
+                                Salary:
+                            </div>
+                            <div>
+                                {{personInfo.work.salary}}
+                            </div>
+                        </mat-card>
+                        <mat-card *ngIf="personInfo.work.rank">
+                            <div class="subject">
+                                Rank:
+                            </div>
+                            <div>
+                                {{personInfo.work.rank}}
+                            </div>
+                        </mat-card>
+                    </div>
+            </mat-card-content>
+        </mat-card>
+        <div class="button">
+            <button mat-fab (click)="returnInsert()">
+                <mat-icon>home</mat-icon>
+            </button>
+            <button mat-fab [matMenuTriggerFor]="menu">
+                <mat-icon>list</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngFor="let element of arrayPerson;let i=index" (click)="selectID(i)"
+                    [disabled]="isSelected(element)" [ngClass]="isSelected(element)? 'buttonSelected' : ''">
+                    {{element.person.name}} {{element.person.lastname}}
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+</div>

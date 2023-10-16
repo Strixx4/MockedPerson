@@ -1,0 +1,40 @@
+.buttonSelected{
+    background-color: crimson;
+    color:  chartreuse
+}
+
+.cont{
+    display:flex;
+    justify-content: center;
+    margin: 0 auto;
+    height: max-content;
+    width: max-content;
+    margin-top:9%;
+}
+
+div{
+    font-size: larger;
+    margin: 0.5rem 0.5rem;
+}
+
+mat-card{
+    margin:0 0.5rem;
+}
+
+.person,.address,.profession{
+    background-color: cadetblue;
+}
+
+.midContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.subject{
+    color: rgb(70, 66, 66);
+}
+
+.button{
+    display: flex;
+    justify-content: space-between;
+}
